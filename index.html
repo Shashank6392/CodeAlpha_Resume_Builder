@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container" id="resume-form">
+    <h1 class="text-center my-2">Resume Builder</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="my-2">Personal Information</h3>
+        <div class="form-group">
+          <label for="nameField">Your Name</label>
+          <input type="text" id="nameField" placeholder="Enter your name" class="form-control">
+        </div>
+        <div class="form-group mt-2">
+          <label for="contactField">Contact</label>
+          <input type="text" id="contactField" placeholder="Enter your contact" class="form-control">
+        </div>
+        <div class="form-group mt-2">
+          <label for="gmailField">Gmail Id</label>
+          <input type="text" id="gmailField" placeholder="Enter your gmail Id" class="form-control">
+        </div>
+        <div class="form-group mt-2">
+          <label for="addressField">Address</label>
+          <textarea id="addressField" placeholder="Enter your address" class="form-control" rows="3">
+          </textarea>
+        </div>
+        <div class="form-group mt-2">
+          <label for="">Upload Your Profile Picture</label>
+          <input id="imgField" type="file" class="form-control" />
+        </div>
+        <p class="text-secondary my-3">Important Links</p>
+        <div class="form-group mt-2">
+          <label for="ldField">LinkedIn</label>
+          <input type="text" id="ldField" placeholder="Enter your linkedin Id" class="form-control">
+        </div>
+        <div class="form-group mt-2">
+          <label for="instaField">Instagram</label>
+          <input type="text" id="instaField" placeholder="Enter your instagram Id" class="form-control">
+        </div>
+        <div class="form-group mt-2">
+          <label for="fbField">Facebook</label>
+          <input type="text" id="fbField" placeholder="Enter your facebook Id" class="form-control">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <h3 class="my-2">Professional Information</h3>
+
+        <div class="form-group mt-3">
+          <label for="">Objective</label>
+          <textarea id="objectiveField" placeholder="Enter your objective" class="form-control">
+          </textarea>
+        </div>
+        <div class="form-group mt-3" id="aq">
+          <label for="">Academic Qualification</label>
+          <textarea placeholder="Enter your academic qualification" class="form-control aqField">
+          </textarea>
+          <div class="container text-center mt-2" id="aqAddButton">
+            <button onclick="addAQField()" class="btn btn-primary btn-sm">Add</button>
+          </div>
+          <div class="form-group mt-3" id="we">
+            <label for="">Work Experience</label>
+            <textarea placeholder="Enter your work experience" class="form-control weField">
+          </textarea>
+            <div class="container text-center mt-2" id="weAddButton">
+              <button onclick="addWEField()" class="btn btn-primary btn-sm">Add</button>
+            </div>
+            <div class="form-group mt-3" id="sk">
+              <label for="">Skills</label>
+              <textarea placeholder="Enter your skills" class="form-control skField">
+            </textarea>
+              <div class="container text-center mt-2" id="skAddButton">
+                <button onclick="addSKField()" class="btn btn-primary btn-sm">Add</button>
+              </div>
+              <div class="form-group mt-3" id="cf">
+                <label for="">Certifications</label>
+                <textarea placeholder="Enter about your certificates" class="form-control cfField">
+              </textarea>
+                <div class="container text-center mt-2" id="cfAddButton">
+                  <button onclick="addCFField()" class="btn btn-primary btn-sm">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3 text-center">
+      <button onclick="generateResume()" class="btn btn-primary btn-lg">Generate Resume</button>
+    </div>
+  </div>
+
+  <div class="container" id="resume-template">
+    <div class="row">
+      <div class="col-md-4 text-center py-5 background">
+        <img src="defaultimg.png" alt="" class="dftimg" id="imgTemplate">
+        <div class="container">
+          <p id="nameT1">Shashank Dwivedi</p>
+          <p id="contactT">+918887584940</p>
+          <p id="gmailT">dwivedishashank241@gmail.com</p>
+          <p id="addressT">Lucknow , India</p>
+          <hr>
+          <p id="ldT"><a href="">https://www.linkedin.com/ShashankDwivedi</a></p>
+          <p id="instaT"><a href="">https://www.instagram.com/ShashankDwivedi</a></p>
+          <p id="fbT"><a href="">https://www.facebook.com/ShashankDwivedi</a></p>
+        </div>
+      </div>
+      <div class="col-md-8 py-5">
+        <h1 id="nameT2" class="text-center" style="font-weight: 800;">Shashank Dwivedi</h1>
+        <div class="card mt-3">
+          <div class="card-header background">
+            <h3>Objective</h3>
+          </div>
+          <div class="card-body">
+            <p id="objectiveT">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit facere quis sed assumenda? Quibusdam, quasi?
+              Libero, cumque provident natus enim, quisquam eos exercitationem doloribus iure tempora odio eum animi
+              error.
+            </p>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-header background">
+            <h3>Academic Qualification</h3>
+          </div>
+          <div class="card-body">
+            <ul id="aqT">
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-header background">
+            <h3>Work Experience</h3>
+          </div>
+          <div class="card-body">
+            <ul id="weT">
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-header background">
+            <h3>Skills</h3>
+          </div>
+          <div class="card-body">
+            <ul id="skT">
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <div class="card-header background">
+            <h3>Certifications</h3>
+          </div>
+          <div class="card-body">
+            <ul id="cfT">
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quibusdam at vel ut officiis expedita qui
+                hic eum, amet illo repellendus ipsam voluptatem corporis unde asperiores nulla cum fugit numquam?
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="container mt-3 text-center">
+          <button onclick="printResume()" class="btn background">
+            Print Resume
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
